@@ -1,9 +1,9 @@
 const mongoose = require('mongoose')
 const bcrypt = require('bcrypt')
 const saltRounds = 15
-const passport = require('passport')
-const passportLocalMongoose = require('passport-local-mongoose')
-const session = require('express-session')
+// const passport = require('passport')
+// const passportLocalMongoose = require('passport-local-mongoose')
+// const session = require('express-session')
 
 const User = require('../models/user.model')
 
