@@ -4,32 +4,27 @@ const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
 
-// const session = require('express-session')
-// const passport = require('passport')
-
-
 app.use(urlencoded({extended: true}))
 
-// app.use(session({
-//     secret: 'bigVibesMyGuyughe987y34hgbs87yt54987fg.',
-//     resave: false,
-//     saveUninitialized: false
-// }));
-// app.use(passport.initialize())
-// app.use(passport.session())
+// DATABASE CONNECTION 
+mongoose.connect(process.env.MONGODB_URI,
+    (error) => {
+        error ? console.log(`Error connecting to databse /n ${error}`)  : console.log(`Successfully connected to the database`);
+    })
 
-mongoose.connect('mongodb://localhost:27017/BoomPlayMovies')
-
-
+// ROUTES
 app.use('/signup', require('./routes/UserSignup'))
 app.use('/login', require('./routes/UserLogin'))
 app.use('/verify-existing-email', require('./routes/verifyExistingEmail'))
 
+// DEFAULT ROOT ROUTE 
 app.get('/', (req, res) => {
     res.send({
         message: 'server is active'
     })
 })
+
+// STARTING SERVER 
 app.listen(4000 || process.env.PORT, () => {
     console.log('app is running')
 })
