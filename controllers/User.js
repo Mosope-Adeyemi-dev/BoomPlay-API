@@ -36,7 +36,7 @@ module.exports = {
                     res.send({
                         error: false,
                         message: 'Account has Succesfully been Created',
-                        details: {
+                        userData: {
                             firstname: registeredUser.firstname,
                             lastname: registeredUser.lastname,
                             email: registeredUser.email,
@@ -49,7 +49,7 @@ module.exports = {
                 res.status(400)
                 res.send({
                     error: true,
-                    message: err.message || 'An error occurred while trying to sign you up, please try again.'
+                    message: 'An error occurred while signing you up, Try again.'
                 })
             }
     }
@@ -83,7 +83,7 @@ module.exports = {
                         message: 'User signed in succesfully'
                     }) 
                    } else {
-                        res.status(400)
+                        res.status(404)
                         res.send({
                             error: true,
                             message: 'Incorrect Email or Password'
@@ -92,7 +92,7 @@ module.exports = {
                     
                 }
                 if (!foundUser) {
-                    res.status(400)
+                    res.status(404)
                     res.send({
                         error: true,
                         message: 'You don\'t have an account yet, try signing up'
