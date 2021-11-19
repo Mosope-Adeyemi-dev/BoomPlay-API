@@ -2,9 +2,12 @@ require('dotenv').config()
 const { urlencoded } = require('express')
 const express = require('express')
 const app = express()
+const cors = require('cors')
 const mongoose = require('mongoose')
 
+// MIDDLEWARES
 app.use(urlencoded({extended: true}))
+app.use(cors())
 
 // DATABASE CONNECTION 
 mongoose.connect(process.env.MONGODB_URI,
