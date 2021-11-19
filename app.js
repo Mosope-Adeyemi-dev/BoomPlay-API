@@ -9,6 +9,9 @@ const mongoose = require('mongoose')
 app.use(urlencoded({extended: true}))
 app.use(cors())
 
+// CORS CONFIGURATION 
+app.options('*', cors())
+
 // DATABASE CONNECTION 
 mongoose.connect(process.env.MONGODB_URI,
     (error) => {
