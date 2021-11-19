@@ -15,7 +15,7 @@ module.exports = {
                 res.send({
                     isAlreadyRegistered: false,
                     error: false,
-                    message: 'No user with email currently exists'
+                    message: 'Account with email already exists. Try logging in instead'
                 })
             }
         } catch(error){
