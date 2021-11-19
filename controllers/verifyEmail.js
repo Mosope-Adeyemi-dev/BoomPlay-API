@@ -9,13 +9,13 @@ module.exports = {
                 res.send({
                     isAlreadyRegistered: true,
                     error: false,
-                    message: 'A user with this email already exists.'
+                    message: 'Account already exists. Try logging in.'
                 })
             } else {
                 res.send({
                     isAlreadyRegistered: false,
                     error: false,
-                    message: 'Account with email already exists. Try logging in instead'
+                    message: 'No user with email currently exists'
                 })
             }
         } catch(error){
