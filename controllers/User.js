@@ -15,13 +15,13 @@ const User = require('../models/user.model')
 module.exports = {
     signUp: async (req, res) => {
         let body = req.body
-        if (Object.entries(body).length === 0) {
-            res.status(400)
-            res.send({
-                error: true,
-                message: 'Request body can not be empty'
-            })
-        } else {
+        // if (Object.entries(body).length === 0) {
+        //     res.status(400)
+        //     res.send({
+        //         error: true,
+        //         message: 'Request body can not be empty'
+        //     })
+        // } else {
             try {
                    const hash = await bcrypt.hash(body.password, saltRounds)
                     // console.log(hash);
@@ -52,17 +52,17 @@ module.exports = {
                     message: err.message || 'An error occurred while trying to sign you up, please try again.'
                 })
             }
-        }
+    // }
     },
     login: async (req, res) => {
         let body = req.body
-        if (Object.entries(body).length === 0) {
-            res.status(400)
-            res.send({
-                error: true,
-                message: 'Request body can not be empty'
-            }) 
-        } else {
+        // if (Object.entries(body).length === 0) {
+        //     res.status(400)
+        //     res.send({
+        //         error: true,
+        //         message: 'Request body can not be empty'
+        //     }) 
+        // } else {
             try {
                 const foundUser = await User.findOne({
                     email: req.body.email.toLowerCase()
@@ -106,7 +106,7 @@ module.exports = {
                     message: err.message || 'An error occurred while trying to sign you in. Please try again.'
                 })
             }
-        }
+        // }
 
 
     }
