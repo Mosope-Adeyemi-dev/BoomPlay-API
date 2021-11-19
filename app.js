@@ -10,7 +10,14 @@ app.use(urlencoded({extended: true}))
 app.use(cors())
 
 // CORS CONFIGURATION 
-app.options('*', cors())
+
+const corsOptions = {
+    origin: '*',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    preflightContinue: false,
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
+app.options('*', cors(corsOptions))
 
 // DATABASE CONNECTION 
 mongoose.connect(process.env.MONGODB_URI,
