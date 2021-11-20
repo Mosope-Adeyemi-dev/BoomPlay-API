@@ -24,8 +24,6 @@ module.exports = {
         } else {
             try {
                    const hash = await bcrypt.hash(body.password, saltRounds)
-                    console.log(hash);
-
                     const newUser = new User({
                         firstname: body.firstname,
                         lastname: body.lastname,
@@ -67,7 +65,6 @@ module.exports = {
                 const foundUser = await User.findOne({
                     email: req.body.email.toLowerCase()
                 })
-                // console.log(foundUser)
                 if (foundUser) {
                    const verifyPassword = await bcrypt.compare(body.password, foundUser.password)
                    console.log(verifyPassword);
@@ -99,7 +96,6 @@ module.exports = {
                     })
                 }
             } catch (err) {
-                console.log(err);
                 res.status(400)
                 res.send({
                     error: true,
