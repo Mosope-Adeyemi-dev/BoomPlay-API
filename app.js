@@ -9,7 +9,7 @@ const mongoose = require('mongoose')
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.use(function (req, res, next) {
+app.use( (req, res, next) => {
 
     // Website /origins allowed to connect
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -38,6 +38,10 @@ mongoose.connect(process.env.MONGODB_URI,
 app.use('/signup', require('./routes/UserSignup'))
 app.use('/login', require('./routes/UserLogin'))
 app.use('/verify-existing-email', require('./routes/verifyExistingEmail'))
+app.use('/movies/now-playing', require('./routes/nowPlaying'))
+app.use('/movies/popular-tv-shows', require('./routes/popularTvShows'))
+app.use('/movies/upcoming', require('./routes/upcomingMovies'))
+app.use('/movies/details', require('./routes/getMovieDetails'))
 
 // DEFAULT ROOT ROUTE 
 app.get('/', (req, res) => {
