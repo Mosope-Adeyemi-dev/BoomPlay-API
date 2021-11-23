@@ -41,7 +41,10 @@ app.use('/verify-existing-email', require('./routes/verifyExistingEmail'))
 app.use('/movies/now-playing', require('./routes/nowPlaying'))
 app.use('/movies/popular-tv-shows', require('./routes/popularTvShows'))
 app.use('/movies/upcoming', require('./routes/upcomingMovies'))
-app.use('/movies/details', require('./routes/getMovieDetails'))
+app.use('/movies/details', require('./routes/movieDetails'))
+app.use('/tv-shows/recommendations', require('./routes/tvShowRecommendations'))
+app.use('/tv-shows/details', require('./routes/tvShowDetails'))
+app.use('/movies/recommendations', require('./routes/movieRecommendation'))
 
 // DEFAULT ROOT ROUTE 
 app.get('/', (req, res) => {
