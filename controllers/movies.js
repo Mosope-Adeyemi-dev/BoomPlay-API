@@ -15,6 +15,7 @@ module.exports = {
         //         }
         //     })
         // ])
+        var token = req.headers['x-access-token'];
         const bulkData = await axios({
                 url: `${baseUrl}/movie/now_playing?api_key=${process.env.TMDB_API_KEY}&language=en-US&page=${req.query.page || 1}`,
                 method: 'GET',
@@ -169,7 +170,6 @@ module.exports = {
                 'content-type': 'application/json'
             }
         }).then(response => {
-            console.log(response.data);
             if (response.data.results.length > 0) {
                 const tvShowsData = {
                     error: false,
@@ -192,12 +192,11 @@ module.exports = {
     },
     getMovieRecommendation: (req, res) => {
         const movieID = req.query.movieID
-        axios.get(`${baseUrl}/movie/${movieID}/similar?api_key=${process.env.TMDB_API_KEY}&language=en-US&page=${req.query.page || 1}`, {
+        axios.get(`${baseUrl}/movie/${movieID}/recommendations?api_key=${process.env.TMDB_API_KEY}&language=en-US&page=${req.query.page || 1}`, {
             headers: {
                 'content-type': 'application/json'
             }
         }).then(response => {
-            console.log(response.data)
             if (response.data.results.length > 0) {
                 const moviesData = {
                     error: false,

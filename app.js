@@ -10,16 +10,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use( (req, res, next) => {
-
-    // Website /origins allowed to connect
     res.setHeader('Access-Control-Allow-Origin', '*');
     // Request methods allowed
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
     // Request headers allowed
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-
-    // Set to true if you need the website to include cookies in the requests sent
-    // to the API (e.g. in case you use sessions)
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With, content-type, Authorization');
     res.setHeader('Access-Control-Allow-Credentials', true);
 
     // Pass to next layer of middleware
@@ -46,7 +41,7 @@ app.use('/tv-shows/recommendations', require('./routes/tvShowRecommendations'))
 app.use('/tv-shows/details', require('./routes/tvShowDetails'))
 app.use('/movies/recommendations', require('./routes/movieRecommendation'))
 
-// DEFAULT ROOT ROUTE 
+// DEFAULT ROUTE 
 app.get('/', (req, res) => {
     res.send({
         message: 'server is active'
