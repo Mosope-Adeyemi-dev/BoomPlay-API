@@ -11,5 +11,5 @@ Technology and tools used on the backend are:
 > - MondoDB Atlas
 
 ### To try out the deployed application [Click Here!](https://we-watch-movies.netlify.app/sign-up)
-> I Would love to get feedback from you after trying out the app, so feel free to reach at to me on instagram [@mosope.dev](https://www.instagram.com/mosope.dev/), or send an [email](mosope.adeyemi.dev@gmail.com)
+> I Would love to get feedback from you after trying out the app, so feel free to reach out to me on instagram [@mosope.dev](https://www.instagram.com/mosope.dev/), or send an [email](mosope.adeyemi.dev@gmail.com)
 
